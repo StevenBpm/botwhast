@@ -4,7 +4,17 @@ const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const JsonFileAdapter = require('@bot-whatsapp/database/json')
 
-const flowSecundario = addKeyword(['2', 'siguiente']).addAnswer(['📄 Aquí tenemos el flujo secundario'])
+const consejoss = addKeyword(['consejo']).addAnswer(
+    [
+        '*Investiga el mercado antes de iniciar tu negocio*. Esto te ayudará a asegurarte de que tu idea es viable y de que hay una demanda para tus productos o servicios.',
+        '[*Conoce a tu público objetivo*] Quiénes son las personas a las que quieres vender? ¿Cuáles son sus necesidades y deseos?',
+        '[*Desarrolla una estrategia de marketing y ventas eficaz*] Asegúrate de que tus productos o servicios lleguen a las personas adecuadas.',
+        '[*Gestiona tu negocio de forma eficiente*] Es importante llevar un control de los gastos y de los ingresos para evitar pérdidas.',
+        '\n*2* Para siguiente paso.'
+    ],
+    null,
+    null,
+)
 
 const EtapaInicial = addKeyword(['inicial', 'inicio', 'recien', 'crear']).addAnswer(
     [
@@ -15,50 +25,18 @@ const EtapaInicial = addKeyword(['inicial', 'inicio', 'recien', 'crear']).addAns
         '\n *5. Sé motivado y perseverante.* El emprendimiento es un camino lleno de desafíos, pero también de recompensas. No te rindas ante las dificultades.',
         'Si quieres unos consejos adicional escribe *consejos* '
     ],
-    null,
-    null,
-    [consejos]
+    [consejoss]
 )
 
-const flowTuto = addKeyword(['tutorial', 'tuto']).addAnswer(
-    [
-        '🙌 Aquí encontras un ejemplo rapido',
-        'https://bot-whatsapp.netlify.app/docs/example/',
-        '\n*2* Para siguiente paso.',
-    ],
-    null,
-    null,
-    [flowSecundario]
-)
 
-const consejos = addKeyword(['consejo']).addAnswer(
-    [
-        '*Investiga el mercado antes de iniciar tu negocio*. Esto te ayudará a asegurarte de que tu idea es viable y de que hay una demanda para tus productos o servicios.',
-        '[*Conoce a tu público objetivo*] Quiénes son las personas a las que quieres vender? ¿Cuáles son sus necesidades y deseos?',
-        '[*Desarrolla una estrategia de marketing y ventas eficaz*] Asegúrate de que tus productos o servicios lleguen a las personas adecuadas.',
-        '[*Gestiona tu negocio de forma eficiente*] Es importante llevar un control de los gastos y de los ingresos para evitar pérdidas.',
-        '\n*2* Para siguiente paso.',
-    ],
-    null,
-    null,
-    [flowSecundario]
-)
 
-const flowDiscord = addKeyword(['discord']).addAnswer(
-    ['🤪 Únete al discord', 'https://link.codigoencasa.com/DISCORD', '\n*2* Para siguiente paso.'],
-    null,
-    null,
-    [flowSecundario]
-)
 
 const flowPrincipal = addKeyword(['hola', 'ole', 'alo'])
     .addAnswer('🙌 Hola, ¿en qué puedo ayudarte?')
     .addAnswer(
         [
             'Soy un chatbot diseñado para poder ayudarte en tu etapa de emprendimiento',
-            'si deseas conocer los puntos basicos para emprender escribe *inicio*',
-        
-            
+            'si deseas conocer los puntos basicos para emprender escribe *inicio*'
         ],
         null,
         null,
