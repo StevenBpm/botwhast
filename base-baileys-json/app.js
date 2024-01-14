@@ -6,15 +6,18 @@ const JsonFileAdapter = require('@bot-whatsapp/database/json')
 
 const flowSecundario = addKeyword(['2', 'siguiente']).addAnswer(['📄 Aquí tenemos el flujo secundario'])
 
-const flowDocs = addKeyword(['doc', 'documentacion', 'documentación']).addAnswer(
+const EtapaInicial = addKeyword(['inicial', 'inicio', 'recien', 'crear']).addAnswer(
     [
-        '📄 Aquí encontras las documentación recuerda que puedes mejorarla',
-        'https://bot-whatsapp.netlify.app/',
-        '\n*2* Para siguiente paso.',
+        '*1.Ten una idea de negocio viable.* ¿Qué quieres ofrecer a los demás? ¿Cuál es tu propuesta de valor? Asegúrate de que tu idea tenga potencial de ser rentable y de satisfacer una necesidad o deseo real',
+        '\n*2.* Elabora un plan de negocios.* Este documento te ayudará a definir los objetivos de tu negocio, a analizar el mercado, a desarrollar una estrategia de marketing y ventas, y a establecer un plan financiero',
+        '\n*3.* Desarrolla las habilidades y experiencia necesarias para llevar a cabo tu negocio.* ¿Qué conocimientos y habilidades necesitas para desarrollar tu idea? ¿Tienes la experiencia necesaria para gestionar un negocio? Si no es así, busca cursos, talleres o mentores que te ayuden a desarrollarlas',
+        '\n 4.*Consigue el capital necesario para iniciar tu negocio.* ¿Cuánto dinero necesitas para cubrir los gastos iniciales? ¿Tienes ahorros o puedes conseguir financiamiento?',
+        '\n *5. Sé motivado y perseverante.* El emprendimiento es un camino lleno de desafíos, pero también de recompensas. No te rindas ante las dificultades.',
+        'Si quieres unos consejos adicional escribe *consejos* '
     ],
     null,
     null,
-    [flowSecundario]
+    [consejos]
 )
 
 const flowTuto = addKeyword(['tutorial', 'tuto']).addAnswer(
@@ -28,12 +31,12 @@ const flowTuto = addKeyword(['tutorial', 'tuto']).addAnswer(
     [flowSecundario]
 )
 
-const flowGracias = addKeyword(['gracias', 'grac']).addAnswer(
+const consejos = addKeyword(['consejo']).addAnswer(
     [
-        '🚀 Puedes aportar tu granito de arena a este proyecto',
-        '[*opencollective*] https://opencollective.com/bot-whatsapp',
-        '[*buymeacoffee*] https://www.buymeacoffee.com/leifermendez',
-        '[*patreon*] https://www.patreon.com/leifermendez',
+        '*Investiga el mercado antes de iniciar tu negocio*. Esto te ayudará a asegurarte de que tu idea es viable y de que hay una demanda para tus productos o servicios.',
+        '[*Conoce a tu público objetivo*] Quiénes son las personas a las que quieres vender? ¿Cuáles son sus necesidades y deseos?',
+        '[*Desarrolla una estrategia de marketing y ventas eficaz*] Asegúrate de que tus productos o servicios lleguen a las personas adecuadas.',
+        '[*Gestiona tu negocio de forma eficiente*] Es importante llevar un control de los gastos y de los ingresos para evitar pérdidas.',
         '\n*2* Para siguiente paso.',
     ],
     null,
@@ -49,17 +52,17 @@ const flowDiscord = addKeyword(['discord']).addAnswer(
 )
 
 const flowPrincipal = addKeyword(['hola', 'ole', 'alo'])
-    .addAnswer('🙌 Hola bienvenido a este *Chatbot*')
+    .addAnswer('🙌 Hola, ¿en qué puedo ayudarte?')
     .addAnswer(
         [
-            'te comparto los siguientes links de interes sobre el proyecto',
-            '👉 *doc* para ver la documentación',
-            '👉 *gracias*  para ver la lista de videos',
-            '👉 *discord* unirte al discord',
+            'Soy un chatbot diseñado para poder ayudarte en tu etapa de emprendimiento',
+            'si deseas conocer los puntos basicos para emprender escribe *inicio*',
+        
+            
         ],
         null,
         null,
-        [flowDocs, flowGracias, flowTuto, flowDiscord]
+        [EtapaInicial]
     )
 
 const main = async () => {
